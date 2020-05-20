@@ -262,6 +262,187 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/20/Web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DarylWxc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Aren.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DarylWXC的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/20/Web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/" itemprop="url">Web前端性能优化-页面加载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-20T16:38:42+08:00">
+                2020-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BC%98%E5%8C%96/" itemprop="url" rel="index">
+                    <span itemprop="name">优化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  940 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Web前端性能优化的方式"><a href="#Web前端性能优化的方式" class="headerlink" title="Web前端性能优化的方式"></a>Web前端性能优化的方式</h2><h3 id="1-减少HTTP请求"><a href="#1-减少HTTP请求" class="headerlink" title="1.减少HTTP请求"></a>1.减少HTTP请求</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个页面80%~90%的时间花在了下载页面中的所有组件进行的HTTP请求上。因此，改善响应时间最简单的途径就是减少HTTP请求的数量。</span><br></pre></td></tr></table></figure>
+<h3 id="2-将样式表放在头部"><a href="#2-将样式表放在头部" class="headerlink" title="2.将样式表放在头部"></a>2.将样式表放在头部</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将样式表放在头部对于实际页面加载的时间影响不大，但是这会减少页面首屏出现的时间，使页面内容逐步呈现，改善用户体验，放置“白屏”。</span><br><span class="line">将样式表放在文档底部会阻止浏览器中的内容逐步出现，为了避免当样式变化时重绘页面元素，浏览器会阻塞内容逐步呈现，造成“白屏”。这源自浏览器的行为，如果样式表仍在加载，构建呈现树就是一种浪费，因为所有样式表加载解析完毕之前无需绘制任何东西。</span><br></pre></td></tr></table></figure>
+<h3 id="3-将脚本放在底部"><a href="#3-将脚本放在底部" class="headerlink" title="3.将脚本放在底部"></a>3.将脚本放在底部</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">跟样式表相同，脚本放在底部对于实际页面加载的数据影响不大。</span><br><span class="line">JS的下载和执行会阻塞DOM树的构建，所以script放在首屏范围内的HTML代码段里会截断首屏的内容。</span><br><span class="line">下载脚本时并下载是禁用的——即使使用了不同的主机名，也不会启用其他的下载。因为脚本可能修改页面内容，因此浏览器会等待；另外也是为了保证脚本能够按照正确的顺序执行，因为后面的脚本可能与前面的脚本存在依赖关系，不按照顺序执行可能会产生错误。</span><br></pre></td></tr></table></figure>
+<h3 id="4-使用外部的JavaScript和CSS"><a href="#4-使用外部的JavaScript和CSS" class="headerlink" title="4.使用外部的JavaScript和CSS"></a>4.使用外部的JavaScript和CSS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">内联脚本或者样式可以减少HTTP请求，按理说可以提高页面加载的速度。然而在实际情况中，当脚本或者样式是从外部引入的文件，浏览器就有可能缓存他们，从而在以后加载的时候能够直接使用缓存，而HTML文档的大小减小，从而提高加载速度。</span><br><span class="line">影响原因：</span><br><span class="line">用户产生的浏览量越少，内联脚本和样式的论据越强势。</span><br><span class="line">如果你的网站不同的页面之间使用的组件大致相同，那么使用外部文件可以提高这些组件的重用率。</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-对文件进行压缩"><a href="#5-对文件进行压缩" class="headerlink" title="5.对文件进行压缩"></a>5.对文件进行压缩</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在服务器端对文件进行压缩，在浏览器端对文件解压，可以有效减少通信传输的数据量。</span><br><span class="line">外部脚本和样式进行合并，多个合为一个，文本文件的压缩率可达80%以上。</span><br><span class="line">但是服务器资源不足的情况下要权衡考虑。</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-合并CSS图片"><a href="#6-合并CSS图片" class="headerlink" title="6.合并CSS图片"></a>6.合并CSS图片</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用CSS Sprites，减少请求数。</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-JS代码的优化"><a href="#7-JS代码的优化" class="headerlink" title="7.JS代码的优化"></a>7.JS代码的优化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">慎用with：在with代码块中访问非局部变量都是先从obj上开始查找，如果没有再一次按作用域链向上查找，使用with相当于增加了作用域链长度。查找需要消耗时间，过长的作用域链会导致性能下降。</span><br><span class="line">避免使用<span class="built_in">eval</span>和Function：每次使用，需要将源代码转换成可执行的代码，很消耗资源。使用该函数也不利于JavaScript压缩工具执行压缩。</span><br><span class="line">减少作用域链查找：应该减少闭包的使用。</span><br><span class="line">数据访问：对对象属性和任何数组成员的访问次数减少，尽可能减少对对象以及数组深度查找。</span><br><span class="line">字符串拼接：在JavaScript使用“+”来拼接效率比较低，使用join函数更为高效（当拼接的字符串比较多的时候考虑使用此方法）。</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/18/%E6%A0%B9%E6%8D%AE%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3%E6%B5%8B%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1918,187 +2099,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="DarylWxc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/Aren.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DarylWXC的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" itemprop="url">小程序开发经验</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T14:46:57+08:00">
-                2020-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">小程序开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  171 words
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>小程序开发经验记录!</p>
-<hr>
-<h2 id="2020-5-9-14-52-Write"><a href="#2020-5-9-14-52-Write" class="headerlink" title="2020/5/9 14:52 Write"></a>2020/5/9 14:52 Write</h2><p>关键词：小程序</p>
-<p>需要安装Node.js,然后安装vue-cli<br>用到VsCode，安装Vetur插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init mpvue/mpvue-quickstart firstapp //创建小程序项目</span><br></pre></td></tr></table></figure>
-<p>（终端）用vue-cli创建项目，与React相似~</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> firstapp //进入刚创建的文件夹</span><br><span class="line">npm install //安装依赖包</span><br><span class="line">然后可以跑起项目了</span><br></pre></td></tr></table></figure>
-<p>使用开发者工具添加项目，编译，可以看到效果<br>写法与Vue相同，生命周期结合小程序的生命周期</p>
-<p>优点：组件化，易于维护，可以代码复用，减少开发成本。熟悉Vue的开发人员能很快上手。<br>缺点：slot问题</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2153,7 +2153,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2164,7 +2164,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2175,7 +2175,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
