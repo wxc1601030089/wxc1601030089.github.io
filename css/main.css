@@ -1736,12 +1736,15 @@ pre .javascript .function {
   margin-top: 0;
 }
 .site-author-image {
-  display: block;
   margin: 0 auto;
   padding: 2px;
   max-width: 120px;
   height: auto;
   border: 1px solid #eee;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  transition: 1.4s all;
 }
 .site-author-name {
   margin: 0;
@@ -1823,7 +1826,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3bff55;
+  background: #78fbab;
 }
 .links-of-author-item {
   text-align: center;
@@ -2993,4 +2996,11 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+.header-inner {
+  opacity: 0.8;
+}
+.main-inner {
+  opacity: 0.8;
+  z-index: 10;
 }
