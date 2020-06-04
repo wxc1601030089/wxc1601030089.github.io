@@ -262,6 +262,181 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/%E4%BD%BF%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DarylWxc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Aren.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DarylWXC的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/09/%E4%BD%BF%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="url">使用HEXO搭建个人博客</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T16:26:35+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index">
+                    <span itemprop="name">搭建博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  236 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>搭建博客过程!</p>
+<hr>
+<h2 id="2020-5-9-16-27-Write"><a href="#2020-5-9-16-27-Write" class="headerlink" title="2020/5/9 16:27 Write"></a>2020/5/9 16:27 Write</h2><p>关键词：GitPage</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">下载安装git//下面的终端操作都使用Git Bush Here</span><br><span class="line">npm install hexo-cli -g //安装hexo</span><br><span class="line">hexo init *****.github.io (****为自己的github名)//初始化博客</span><br><span class="line"><span class="built_in">cd</span> *****.github.io //进入目录</span><br><span class="line">hexo g//生成静态页面</span><br><span class="line">hexo s//启动服务器，在localhost:4000上查看刚生成的博客页</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"**********"</span> (****为个人邮箱,注意引号)//配置SSH</span><br><span class="line">根据路径找到id_rsa.pub，复制里面的内容</span><br><span class="line">在Github项目当中Setting中找到SSH and GPG keys黏贴进去</span><br><span class="line">ssh -T git@github.com (输入yes)//回到Git Bash中检查</span><br><span class="line">需要在主文件夹中的_config.yml文件配置deploy // 配置属性的时候需要在冒号后空一格，不然会报错</span><br><span class="line">deploy:</span><br><span class="line">    <span class="built_in">type</span>: git</span><br><span class="line">    repo: **********//你的项目地址 类：https://github.com/yourname/yourname.github.io.git</span><br><span class="line">    branch: master</span><br><span class="line">npm install hexo-deployer-git --save //安装插件</span><br><span class="line">hexo clean //清理public文件夹</span><br><span class="line">hexo g//同上</span><br><span class="line">hexo d//部署到github的项目中</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/CSS%E6%A0%B7%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -589,205 +764,6 @@
 <p>使用开发者工具添加项目，编译，可以看到效果<br>写法与Vue相同，生命周期结合小程序的生命周期</p>
 <p>优点：组件化，易于维护，可以代码复用，减少开发成本。熟悉Vue的开发人员能很快上手。<br>缺点：slot问题</p>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/07/Vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="DarylWxc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/Aren.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DarylWXC的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/07/Vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" itemprop="url">Vue开发经验</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-07T10:31:25+08:00">
-                2020-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">Web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1.4k words
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  5 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="This-is-my-vue-develop-exprience"><a href="#This-is-my-vue-develop-exprience" class="headerlink" title="This is my vue develop exprience~"></a>This is my vue develop exprience~</h2><h2 id="2020-5-7-16-02-Write"><a href="#2020-5-7-16-02-Write" class="headerlink" title="2020/5/7 16:02 Write"></a>2020/5/7 16:02 Write</h2><p>过往项目经验总结</p>
-<p>关键词：Vue，CSS，SVN，WebPack，IconFont，Flex，Jeecg，Iview，ElementUI</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">使用Vue开发页面，环境配置，导入包，Package，使用IView组件进行页面开发。</span><br><span class="line">（使用开源组件一定需要查看开发文档！！！！！！）</span><br><span class="line">CSS排版布局，flex学习并使用，各种定位的深入了解。</span><br><span class="line">router路由在Vue当中的使用，熟练使用组件进行开发。</span><br><span class="line">熟练使用SVN进行提交和更新代码，提交需要带钩子，如果本地有更改过的文件，在更新时需要将有改动的文件删除再更新，否则会出现乱码</span><br><span class="line">父子组件间的传值通信，Props的使用，对话框的熟练使用。</span><br><span class="line">分析需求并设计页面，使用Axure进行页面的设计，使用开源的移动端组件和阿里的IconFont，必要时可以自行设计组件。</span><br><span class="line">熟悉WebPack框架和Cli脚手架。</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">使用ant-design-jeecg-vue进行开发，代码自动生成。文档链接：[jeecg开发文档](<span class="string">"http://doc.jeecg.com/1273969"</span>)</span><br><span class="line">该框架生成的代码由ElementUI组件组成。</span><br><span class="line">考虑页面的逻辑和合理性。</span><br><span class="line">弹框嵌套，需要注意层级。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="2020-5-7-10-33-Write"><a href="#2020-5-7-10-33-Write" class="headerlink" title="2020/5/7 10:33 Write"></a>2020/5/7 10:33 Write</h2><p>使用Vue进行对应页面开发</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">使用elementUI进行页面的开发，使用Upload上传文件，自带判断文件后缀。</span><br><span class="line">使用POST方法，带FormData参数，使用Append添加序列，需要New一个FormData对象，然后进行传参。</span><br><span class="line">使用Dialog组件，显示设备详情，点击跳出，准备参析路由。</span><br><span class="line">GET方法带的参数只有Params对象。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="2020-5-7-15-53-Write"><a href="#2020-5-7-15-53-Write" class="headerlink" title="2020/5/7 15:53 Write"></a>2020/5/7 15:53 Write</h2><p>使用Element组件遇到的问题~</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用elementUI的UpLoad组件上传xls文件，需要注意文件格式和文件获取</span><br><span class="line">组件自带上传，可以设置header和数据的name，需要注意Token或者Cookie</span><br><span class="line">组件获取文件的方式   this.<span class="variable">$refs</span>.&#123;upload&#125;（这是关联upload组件的ref名称）.<span class="variable">$data</span>.uploadFiles</span><br><span class="line">注意dialog组件的visible显示值设置</span><br><span class="line">详细查看开发文档！！！！！必要时进行测试获取信息！！</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="2020-5-8-9-38-Write"><a href="#2020-5-8-9-38-Write" class="headerlink" title="2020/5/8 9:38 Write"></a>2020/5/8 9:38 Write</h2><p>使用SVN合并代码，并开发模式遇到问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">将文件checkout在其他文件夹里，然后修改原代码文件。</span><br><span class="line">多注意NetWork中请求的格式，请求的参数格式！！！！</span><br><span class="line">其中GET方式的URL会随参数改变，POST方式不会。</span><br><span class="line">使用POSTMan测试。</span><br><span class="line">接口文档管理有使用到SWAGGER和小幺鸡~</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="2020-5-9-9-53-Write"><a href="#2020-5-9-9-53-Write" class="headerlink" title="2020/5/9 9:53 Write"></a>2020/5/9 9:53 Write</h2><p>总结工作经验，编写简历</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">熟练掌握HTML、CSS、JS、Ajax等WEB等技术，并使用Vue前端框架、ElementUI组件、Iview组件进行项目开发。</span><br><span class="line">熟练使用版本管理器管理代码，如Git，SVN版本管理器。</span><br><span class="line">熟悉Axure，进行需求分析并使用各种组件和Icon对软件进行原型设计，并根据反馈完善。</span><br><span class="line">熟悉MySQL的使用，利用Navicat对数据库中的数据进行查看。</span><br><span class="line">熟悉小程序的前端开发，使用开发者工具进行项目开发。</span><br><span class="line">熟悉WebPack打包工具和Cli脚手架。</span><br><span class="line">了解Mpvue小程序开发框架。</span><br><span class="line"></span><br><span class="line">项目一：核心素养小程序</span><br><span class="line">→项目简述：该小程序是根据七彩评价系统设计并开发，应用于学生，家长，教师三方的教育平台，主要功能模块包括：后台管理系统、小程序前端系统、登录系统，交互系统。</span><br><span class="line">→开发环境：开发者工具</span><br><span class="line">→核心技术：JavaScript，WXML，WXSS，Ajax</span><br><span class="line">→责任描述：（1）设计并开发页面。</span><br><span class="line">	   （2）实现交互功能并对功能进行优化。</span><br><span class="line">	   （3）使用Echarts表格展示数据，实现可视化。</span><br><span class="line">项目二：深圳机场智能环境感知平台</span><br><span class="line">→项目简述：通过设备监测并收集航站楼环境数据，平台实现环境变化的可视化，可供人员及时找到并解决问题。主要系统模块包括：GIS系统，IAM平台，IOT平台，OTA系统。</span><br><span class="line">→开发环境：Visual Studio Code</span><br><span class="line">→核心技术：Vue，Ajax，JavaScript</span><br><span class="line">→责任描述：（1）使用Iview修改相关页面和数据展示。</span><br><span class="line">	   （2）使用Echarts表格对数据进行处理展示。</span><br><span class="line">	   （3）修改API封装Ajax请求函数。</span><br><span class="line">项目三：环境感知应用云平台</span><br><span class="line">→项目简述：基于深圳机场感知项目抽离的通用服务平台，为满足多租户云服务的需求，主要应用模块包括：应用云服务、管理后台、数据接口、Android移动端、小程序。</span><br><span class="line">→开发环境：WebStorm，Axure</span><br><span class="line">→核心技术：JavaScript，Vue，Ajax</span><br><span class="line">→责任描述：（1）根据需求讨论并使用Axure设计管理后台端页面。</span><br><span class="line">	   （2）根据需求讨论并使用Axure设计小程序前端页面。</span><br><span class="line">	   （3）使用Vue开发管理后台页面模块，实现数据的交互和展示。</span><br><span class="line">	   （4）使用ElementUI进行页面的UI开发。</span><br><span class="line">	   （5）对功能进行测试并优化页面，使页面功能交互更加合理。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue的两种路由模式：Hash和History模式</span><br><span class="line"><span class="built_in">hash</span>：默认模式</span><br><span class="line">常用NewURL和OldURL来改变链接，动态页面数据。<span class="built_in">hash</span>值发生变化的时候，会触发hashchange这个时间，通过该事件监听hashchange来实现更新页面部分内容。</span><br><span class="line">History模式：</span><br><span class="line">切换历史状态，back，forward，go三个方法，刷新页面会请求服务器。History模式需要避免刷新。刷新时如果没有相应的响应或者资源，会刷新出404。</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同事开发地图，使用蜂鸟地图插件。经过询问得知，正在研究。</span><br></pre></td></tr></table></figure>
-
-<h3 id="持续进行编写和开发，经验保存"><a href="#持续进行编写和开发，经验保存" class="headerlink" title="持续进行编写和开发，经验保存"></a>持续进行编写和开发，经验保存</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">后续将CSDN博客中的经验总结并转移，并学习更多HEXO使用方式和编写方式</span><br></pre></td></tr></table></figure>
           
         
       
