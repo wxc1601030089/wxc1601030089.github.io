@@ -262,6 +262,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DarylWxc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Aren.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DarylWXC的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/11/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url">正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-11T14:46:37+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  781 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>匹配搜索和验证</p>
+<hr>
+<h2 id="2020-5-11-14-48-Write"><a href="#2020-5-11-14-48-Write" class="headerlink" title="2020/5/11 14:48 Write"></a>2020/5/11 14:48 Write</h2><p>关键词：JS</p>
+<h3 id="常规"><a href="#常规" class="headerlink" title="常规"></a>常规</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">^ 匹配一个输入或一行的开头，/^a/匹配<span class="string">"an A"</span>，而不匹配<span class="string">"An a"</span></span><br><span class="line">$ 匹配一个输入或一行的结尾，/a$/匹配<span class="string">"An a"</span>，而不匹配<span class="string">"an A"</span></span><br><span class="line">* 匹配前面元字符0次或多次，/ba*/将匹配b,ba,baa,baaa</span><br><span class="line">+ 匹配前面元字符1次或多次，/ba*/将匹配ba,baa,baaa</span><br><span class="line">? 匹配前面元字符0次或1次，/ba*/将匹配b,ba</span><br><span class="line">(x) 匹配x保存x在名为<span class="variable">$1</span>...<span class="variable">$9</span>的变量中</span><br><span class="line">x|y 匹配x或y</span><br><span class="line">&#123;n&#125; 精确匹配n次</span><br><span class="line">&#123;n,&#125; 匹配n次以上</span><br><span class="line">&#123;n,m&#125; 匹配n-m次</span><br><span class="line">[xyz] 字符集(character <span class="built_in">set</span>)，匹配这个集合中的任一一个字符(或元字符)</span><br><span class="line">[^xyz] 不匹配这个集合中的任何一个字符</span><br><span class="line">[\b] 匹配一个退格符</span><br><span class="line">\b 匹配一个单词的边界</span><br><span class="line">\B 匹配一个单词的非边界</span><br><span class="line">\cX 这儿，X是一个控制符，/\cM/匹配Ctrl-M</span><br><span class="line">\d 匹配一个字数字符，/\d/ = /[0-9]/</span><br><span class="line">\D 匹配一个非字数字符，/\D/ = /[^0-9]/</span><br><span class="line">\n 匹配一个换行符</span><br><span class="line">\r 匹配一个回车符</span><br><span class="line">\s 匹配一个空白字符，包括\n,\r,\f,\t,\v等</span><br><span class="line">\S 匹配一个非空白字符，等于/[^\n\f\r\t\v]/</span><br><span class="line">\t 匹配一个制表符</span><br><span class="line">\v 匹配一个重直制表符</span><br><span class="line">\w 匹配一个可以组成单词的字符(alphanumeric，这是我的意译，含数字)，包括下划线，如[\w]匹配<span class="string">"<span class="variable">$5</span>.98"</span>中的5，等于[a-zA-Z0-9]</span><br><span class="line">\W 匹配一个不可以组成单词的字符，如[\W]匹配<span class="string">"<span class="variable">$5</span>.98"</span>中的$，等于[^a-zA-Z0-9]</span><br></pre></td></tr></table></figure>
+<h3 id="特殊需求："><a href="#特殊需求：" class="headerlink" title="特殊需求："></a>特殊需求：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</span><br><span class="line"></span><br><span class="line">域名：[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.?</span><br><span class="line"></span><br><span class="line">InternetURL：[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</span><br><span class="line"></span><br><span class="line">手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$</span><br><span class="line"></span><br><span class="line">电话号码(<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXXX-XXXXXXXX"</span>、<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXX-XXXXXXXX"</span>、<span class="string">"XXXXXXX"</span>和<span class="string">"XXXXXXXX)：^(\(\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">国内电话号码(0511-4405222、021-87888822)：\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">身份证号(15位、18位数字)：^\d&#123;15&#125;|\d&#123;18&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">短身份证号码(数字、字母x结尾)：^([0-9])&#123;7,18&#125;(x|X)?$ 或 ^\d&#123;8,18&#125;|[0-9x]&#123;8,18&#125;|[0-9X]&#123;8,18&#125;?$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w&#123;5,17&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,10&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">日期格式：^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/%E4%BD%BF%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -851,7 +1027,7 @@
               <div class="site-state-item site-state-posts">
                 <a href="/archives/%7C%7Carchive">
                 <a href="/archives">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -862,7 +1038,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -873,7 +1049,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
