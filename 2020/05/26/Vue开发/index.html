@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/05/26/Vue%E5%BC%80%E5%8F%91/vue.png">
 <meta property="article:published_time" content="2020-05-26T06:50:00.000Z">
-<meta property="article:modified_time" content="2020-06-04T02:30:13.624Z">
+<meta property="article:modified_time" content="2020-06-15T06:30:24.801Z">
 <meta property="article:author" content="DarylWxc">
 <meta property="article:tag" content="前端框架">
 <meta name="twitter:card" content="summary">
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.6k words
+                  1.8k words
                 </span>
               
 
@@ -415,6 +415,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">回温Vue文档。查看生命周期。</span><br><span class="line">beforeCreate()-&gt;created()-&gt;beforeMount()-&gt;mounted()-&gt;beforeUpdate()-&gt;updated()-&gt;beforeDestroy()-&gt;destoryed()//函数调用顺序，中间各有过程</span><br><span class="line">周期如下图</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/05/26/Vue%E5%BC%80%E5%8F%91/vue.png" alt="vue"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在使用ElementUI的Upload上传文件时，action的动态响应是在上传后执行的，所以需要给上传方法设置延时器，并且用到this上下文的时候，需要将this传到该函数内使用，否则会报错。</span><br><span class="line">上传可以设置header的值，在初始化的时候获取token：this.header = &#123;token:`<span class="variable">$&#123;this.$cookie.get('token')&#125;</span>`&#125;</span><br><span class="line">设置的header是一个对象，给header的token属性赋值，要求上传成功后自动关闭对话框，然后清除选择文件数据：this.<span class="variable">$refs</span>.upload.clearFiles();</span><br><span class="line">需要考虑功能全面，合理</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vue中数据异步渲染，数据响应式为Vue 的重要核心，在数据变更后，可能DOM还未更新，所以可以调用nextTick（callback）函数，这样回调函数将在DOM更新完后被调用。并且this会绑定到当前的vue实例上。</span><br><span class="line">同域：域名、端口、协议均相同，缺一不可。</span><br><span class="line">跨域：浏览器从一个域名的网页去请求另一个域名的资源时，不同域，就是跨域。//可能会被另一个域保存Cookie或session用来对同域网站发起非法操作，为CSRF攻击，盗用身份。</span><br><span class="line">解决方法：JSONP，CORS。//https://www.jianshu.com/p/f880878c1398(参考)</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="持续进行编写和开发，经验保存"><a href="#持续进行编写和开发，经验保存" class="headerlink" title="持续进行编写和开发，经验保存"></a>持续进行编写和开发，经验保存</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">后续将CSDN博客中的经验总结并转移，并学习更多HEXO使用方式和编写方式</span><br></pre></td></tr></table></figure>
       
@@ -538,7 +540,7 @@
               <div class="site-state-item site-state-posts">
                 <a href="/archives/%7C%7Carchive">
                 <a href="/archives">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -560,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
