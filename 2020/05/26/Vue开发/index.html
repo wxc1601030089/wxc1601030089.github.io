@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/05/26/Vue%E5%BC%80%E5%8F%91/vue.png">
 <meta property="article:published_time" content="2020-05-26T06:50:00.000Z">
-<meta property="article:modified_time" content="2020-06-16T06:15:51.306Z">
+<meta property="article:modified_time" content="2020-06-18T09:22:21.786Z">
 <meta property="article:author" content="DarylWxc">
 <meta property="article:tag" content="前端框架">
 <meta name="twitter:card" content="summary">
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.8k words
+                  2.1k words
                 </span>
               
 
@@ -364,7 +364,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  6 min
+                  7 min
                 </span>
               
             </div>
@@ -418,6 +418,7 @@
 <hr>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vue中数据异步渲染，数据响应式为Vue 的重要核心，在数据变更后，可能DOM还未更新，所以可以调用nextTick（callback）函数，这样回调函数将在DOM更新完后被调用。并且this会绑定到当前的vue实例上。</span><br><span class="line">同域：域名、端口、协议均相同，缺一不可。</span><br><span class="line">跨域：浏览器从一个域名的网页去请求另一个域名的资源时，不同域，就是跨域。//可能会被另一个域保存Cookie或session用来对同域网站发起非法操作，为CSRF攻击，盗用身份。</span><br><span class="line">解决方法：JSONP，CORS。//https://www.jianshu.com/p/f880878c1398(参考)</span><br><span class="line">使用FileZilla Client进行网页部署，连接到服务器，将右边框内dist文件删除，从左边框内选择本体文件，然后右键上传。</span><br></pre></td></tr></table></figure>
 <hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Vue加载本地图片失败，无法使用相对路径。</span><br><span class="line">//使用绝对路径 :src=<span class="string">"'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'"</span></span><br><span class="line">//使用require :src=<span class="string">"require('@/assets/images/icon/file/jpg.png')"</span></span><br><span class="line">//使用import   import jpg from <span class="string">'@/assets/images/icon/file/jpg.png'</span></span><br><span class="line">Vue使用vue-awesome</span><br><span class="line">//执行指令 npm install vue-awesome</span><br><span class="line">//在main.js文件下 import <span class="string">'vue-awesome'</span> || import Icon from <span class="string">'vue-awesome/components/Icon'</span></span><br><span class="line">//Vue.component(<span class="string">'icon'</span>,Icon)  然后正常使用  &lt;icon name=”beer”&gt;&lt;/icon&gt;</span><br><span class="line">Vue使用Iconfont</span><br><span class="line">//选择Icon加入购物车，并且下载源码</span><br><span class="line">//执行命令npm install css-loader -D(否则会报错）</span><br><span class="line">//在main.js文件中引入 import <span class="string">'@/assets/Iconfont/iconfont.css'</span>!!!!!注意这里使用@，绝对路径</span><br><span class="line">//直接使用&lt;i class=<span class="string">"iconfont icon-MV"</span> style=<span class="string">"color: white"</span>&gt;&lt;/i&gt;  在iconfont.json文件中查看各个icon的fontclass</span><br><span class="line">Vue行内写hover样式</span><br><span class="line">//onmouseover=<span class="string">"this.style.color='#57EDED'"</span>!!由于无法实现hover，使用js事件实现，并且在参数边要加引号<span class="string">''</span></span><br><span class="line">//改变光标形状为小手:cursor=<span class="string">'pointer'</span></span><br><span class="line">Vue点击跳转链接</span><br><span class="line">//如果不写协议，会自动在链接前加上localhost:8080(相当于一个相对路径)</span><br><span class="line">CSS3 animaiton 实现图片旋转</span><br></pre></td></tr></table></figure>
 <h3 id="持续进行编写和开发，经验保存"><a href="#持续进行编写和开发，经验保存" class="headerlink" title="持续进行编写和开发，经验保存"></a>持续进行编写和开发，经验保存</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">后续将CSDN博客中的经验总结并转移，并学习更多HEXO使用方式和编写方式</span><br></pre></td></tr></table></figure>
       
     </div>
