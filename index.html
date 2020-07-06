@@ -262,6 +262,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DarylWxc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Aren.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DarylWXC的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/06/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" itemprop="url">Vue源码学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-06T14:10:53+08:00">
+                2020-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  729 words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-0-如何监听一个对象的变化"><a href="#1-0-如何监听一个对象的变化" class="headerlink" title="1.0 如何监听一个对象的变化"></a>1.0 如何监听一个对象的变化</h3><p>1.Object.defineProperty方法//ES5中新增-&gt;可以自定义getter和setter函数，从而在<br>获取对象属性和设置对象属性的时候能够执行自定义的回调函数。<br>2.对象是个层次的结构，对象的某个属性可能仍是一个对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> data = &#123;</span><br><span class="line">    user: &#123;</span><br><span class="line">        name: <span class="string">"liangshaofeng"</span>,</span><br><span class="line">        age: <span class="string">"24"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    address: &#123;</span><br><span class="line">        city: <span class="string">"beijing"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>解决方案：如果对象的属性仍然是一个对象，那么使用递归算法，walk函数，继续new一个Observer<br>直到到达最底层的属性位置。<br>实现代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">// 观察者构造函数</span><br><span class="line"><span class="keyword">function</span> Observer(data) &#123;</span><br><span class="line">    this.data = data;</span><br><span class="line">    this.walk(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> p = Observer.prototype;</span><br><span class="line"></span><br><span class="line">// 此函数用于深层次遍历对象的各个属性</span><br><span class="line">// 采用的是递归的思路</span><br><span class="line">// 因为我们要为对象的每一个属性绑定getter和setter</span><br><span class="line">p.walk = <span class="keyword">function</span> (obj) &#123;</span><br><span class="line">    <span class="built_in">let</span> val;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        // 这里为什么要用hasOwnProperty进行过滤呢？</span><br><span class="line">        // 因为for...in 循环会把对象原型链上的所有可枚举属性都循环出来</span><br><span class="line">        // 而我们想要的仅仅是这个对象本身拥有的属性，所以要这么做。</span><br><span class="line">        <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">            val = obj[key];</span><br><span class="line"></span><br><span class="line">            // 这里进行判断，如果还没有遍历到最底层，继续new Observer</span><br><span class="line">            <span class="keyword">if</span> (typeof val === <span class="string">'object'</span>) &#123;</span><br><span class="line">                new Observer(val);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            this.convert(key, val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">p.convert = <span class="keyword">function</span> (key, val) &#123;</span><br><span class="line">    Object.defineProperty(this.data, key, &#123;</span><br><span class="line">        enumerable: <span class="literal">true</span>,</span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        get: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            console.log(<span class="string">'你访问了'</span> + key);</span><br><span class="line">            <span class="built_in">return</span> val</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="built_in">set</span>: <span class="keyword">function</span> (newVal) &#123;</span><br><span class="line">            console.log(<span class="string">'你设置了'</span> + key);</span><br><span class="line">            console.log(<span class="string">'新的'</span> + key + <span class="string">' = '</span> + newVal)</span><br><span class="line">            <span class="keyword">if</span> (newVal === val) <span class="built_in">return</span>;</span><br><span class="line">            val = newVal</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> data = &#123;</span><br><span class="line">    user: &#123;</span><br><span class="line">        name: <span class="string">"liangshaofeng"</span>,</span><br><span class="line">        age: <span class="string">"24"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    address: &#123;</span><br><span class="line">        city: <span class="string">"beijing"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> app = new Observer(data);</span><br></pre></td></tr></table></figure>
+<p>1.上面的代码只监听了对象的变化，没有处理数组的变化。<br>2.当你重新set的属性是对象的话，那么新set的对象里面的属性不能调用getter和setter。<br>3.①实现observer②消息-订阅器③实现一个watcher④实现一个vue<br>4.①↑通过递归，给每个属性（包括子属性）加上get/set，有赋值触发set方法，发出通知，触发回调。<br>5.②↑watcher为订阅者，一旦触发notify函数，遍历watcher，调用update方法。<br>6.③↑实现watcher，内置构造函数，update函数（调用更新数据的函数），根据判断object.defineProperty的get是否有值来调用。<br>7.④↑实现一个vue，引入observer，引入watcher，observer自己的data，访问data的属性，watcher属性。<br>实现vue的代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import Watcher from <span class="string">'../watcher'</span></span><br><span class="line">import &#123;observe&#125; from <span class="string">"../observer"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default class Vue &#123;</span><br><span class="line">  constructor (options=&#123;&#125;) &#123;</span><br><span class="line">    //这里简化了。。其实要merge</span><br><span class="line">    this.<span class="variable">$options</span>=options</span><br><span class="line">    //这里简化了。。其实要区分的</span><br><span class="line">    <span class="built_in">let</span> data = this._data=this.<span class="variable">$options</span>.data</span><br><span class="line">    Object.keys(data).forEach(key=&gt;this._proxy(key))</span><br><span class="line">    observe(data,this)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="variable">$watch</span>(expOrFn, cb, options)&#123;</span><br><span class="line">    new Watcher(this, expOrFn, cb)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _proxy(key) &#123;</span><br><span class="line">    var self = this</span><br><span class="line">    Object.defineProperty(self, key, &#123;</span><br><span class="line">      configurable: <span class="literal">true</span>,</span><br><span class="line">      enumerable: <span class="literal">true</span>,</span><br><span class="line">      get: <span class="keyword">function</span> <span class="function"><span class="title">proxyGetter</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> self._data[key]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="built_in">set</span>: <span class="keyword">function</span> proxySetter (val) &#123;</span><br><span class="line">        self._data[key] = val</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/01/%E5%87%BD%E6%95%B0%E7%90%86%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1854,192 +2031,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/20/Web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="DarylWxc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/Aren.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DarylWXC的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/20/Web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/" itemprop="url">Web前端性能优化-页面加载</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-20T16:38:42+08:00">
-                2020-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BC%98%E5%8C%96/" itemprop="url" rel="index">
-                    <span itemprop="name">优化</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  940 words
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  3 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Web前端性能优化的方式"><a href="#Web前端性能优化的方式" class="headerlink" title="Web前端性能优化的方式"></a>Web前端性能优化的方式</h2><h3 id="1-减少HTTP请求"><a href="#1-减少HTTP请求" class="headerlink" title="1.减少HTTP请求"></a>1.减少HTTP请求</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个页面80%~90%的时间花在了下载页面中的所有组件进行的HTTP请求上。因此，改善响应时间最简单的途径就是减少HTTP请求的数量。</span><br></pre></td></tr></table></figure>
-<h3 id="2-将样式表放在头部"><a href="#2-将样式表放在头部" class="headerlink" title="2.将样式表放在头部"></a>2.将样式表放在头部</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将样式表放在头部对于实际页面加载的时间影响不大，但是这会减少页面首屏出现的时间，使页面内容逐步呈现，改善用户体验，放置“白屏”。</span><br><span class="line">将样式表放在文档底部会阻止浏览器中的内容逐步出现，为了避免当样式变化时重绘页面元素，浏览器会阻塞内容逐步呈现，造成“白屏”。这源自浏览器的行为，如果样式表仍在加载，构建呈现树就是一种浪费，因为所有样式表加载解析完毕之前无需绘制任何东西。</span><br></pre></td></tr></table></figure>
-<h3 id="3-将脚本放在底部"><a href="#3-将脚本放在底部" class="headerlink" title="3.将脚本放在底部"></a>3.将脚本放在底部</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">跟样式表相同，脚本放在底部对于实际页面加载的数据影响不大。</span><br><span class="line">JS的下载和执行会阻塞DOM树的构建，所以script放在首屏范围内的HTML代码段里会截断首屏的内容。</span><br><span class="line">下载脚本时并下载是禁用的——即使使用了不同的主机名，也不会启用其他的下载。因为脚本可能修改页面内容，因此浏览器会等待；另外也是为了保证脚本能够按照正确的顺序执行，因为后面的脚本可能与前面的脚本存在依赖关系，不按照顺序执行可能会产生错误。</span><br></pre></td></tr></table></figure>
-<h3 id="4-使用外部的JavaScript和CSS"><a href="#4-使用外部的JavaScript和CSS" class="headerlink" title="4.使用外部的JavaScript和CSS"></a>4.使用外部的JavaScript和CSS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">内联脚本或者样式可以减少HTTP请求，按理说可以提高页面加载的速度。然而在实际情况中，当脚本或者样式是从外部引入的文件，浏览器就有可能缓存他们，从而在以后加载的时候能够直接使用缓存，而HTML文档的大小减小，从而提高加载速度。</span><br><span class="line">影响原因：</span><br><span class="line">用户产生的浏览量越少，内联脚本和样式的论据越强势。</span><br><span class="line">如果你的网站不同的页面之间使用的组件大致相同，那么使用外部文件可以提高这些组件的重用率。</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-对文件进行压缩"><a href="#5-对文件进行压缩" class="headerlink" title="5.对文件进行压缩"></a>5.对文件进行压缩</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在服务器端对文件进行压缩，在浏览器端对文件解压，可以有效减少通信传输的数据量。</span><br><span class="line">外部脚本和样式进行合并，多个合为一个，文本文件的压缩率可达80%以上。</span><br><span class="line">但是服务器资源不足的情况下要权衡考虑。</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-合并CSS图片"><a href="#6-合并CSS图片" class="headerlink" title="6.合并CSS图片"></a>6.合并CSS图片</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用CSS Sprites，减少请求数。</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-JS代码的优化"><a href="#7-JS代码的优化" class="headerlink" title="7.JS代码的优化"></a>7.JS代码的优化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">慎用with：在with代码块中访问非局部变量都是先从obj上开始查找，如果没有再一次按作用域链向上查找，使用with相当于增加了作用域链长度。查找需要消耗时间，过长的作用域链会导致性能下降。</span><br><span class="line">避免使用<span class="built_in">eval</span>和Function：每次使用，需要将源代码转换成可执行的代码，很消耗资源。使用该函数也不利于JavaScript压缩工具执行压缩。</span><br><span class="line">减少作用域链查找：应该减少闭包的使用。</span><br><span class="line">数据访问：对对象属性和任何数组成员的访问次数减少，尽可能减少对对象以及数组深度查找。</span><br><span class="line">字符串拼接：在JavaScript使用“+”来拼接效率比较低，使用join函数更为高效（当拼接的字符串比较多的时候考虑使用此方法）。</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
   </nav>
 
 
@@ -2088,7 +2084,7 @@
               <div class="site-state-item site-state-posts">
                 <a href="/archives/%7C%7Carchive">
                 <a href="/archives">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
