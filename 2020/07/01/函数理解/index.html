@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="隐式函数参数：arguments123arguments:不代表数组，允许我们访问传递给函数的所有参数。自带length属性。arguments代表参数的别名，更改对象arguments的值会影响对应的函数参数。arguments在strict模式下无法使用。arguments和参数值不互通（strict模式下）。 函数上下文：this1234567this：面向对象编程的重要组成部分。this通">
+<meta name="description" content="隐式函数参数：argumentsarguments:不代表数组，允许我们访问传递给函数的所有参数。自带length属性。arguments代表参数的别名，更改对象arguments的值会影响对应的函数参数。arguments在strict模式下无法使用。arguments和参数值不互通（strict模式下）。 函数上下文：thisthis：面向对象编程的重要组成部分。this通常指向定义当前方法的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数理解">
 <meta property="og:url" content="http://yoursite.com/2020/07/01/%E5%87%BD%E6%95%B0%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="DarylWXC的博客">
-<meta property="og:description" content="隐式函数参数：arguments123arguments:不代表数组，允许我们访问传递给函数的所有参数。自带length属性。arguments代表参数的别名，更改对象arguments的值会影响对应的函数参数。arguments在strict模式下无法使用。arguments和参数值不互通（strict模式下）。 函数上下文：this1234567this：面向对象编程的重要组成部分。this通">
+<meta property="og:description" content="隐式函数参数：argumentsarguments:不代表数组，允许我们访问传递给函数的所有参数。自带length属性。arguments代表参数的别名，更改对象arguments的值会影响对应的函数参数。arguments在strict模式下无法使用。arguments和参数值不互通（strict模式下）。 函数上下文：thisthis：面向对象编程的重要组成部分。this通常指向定义当前方法的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-01T01:15:30.000Z">
-<meta property="article:modified_time" content="2020-07-01T01:54:24.983Z">
+<meta property="article:modified_time" content="2020-07-07T01:09:43.238Z">
 <meta property="article:author" content="DarylWxc">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="函数">
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  182 words
+                  183 words
                 </span>
               
 
@@ -384,8 +384,9 @@
       
 
       
-        <h2 id="隐式函数参数：arguments"><a href="#隐式函数参数：arguments" class="headerlink" title="隐式函数参数：arguments"></a>隐式函数参数：arguments</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arguments:不代表数组，允许我们访问传递给函数的所有参数。自带length属性。</span><br><span class="line">arguments代表参数的别名，更改对象arguments的值会影响对应的函数参数。</span><br><span class="line">arguments在strict模式下无法使用。arguments和参数值不互通（strict模式下）。</span><br></pre></td></tr></table></figure>
-<h2 id="函数上下文：this"><a href="#函数上下文：this" class="headerlink" title="函数上下文：this"></a>函数上下文：this</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">this：面向对象编程的重要组成部分。</span><br><span class="line">this通常指向定义当前方法的类的实例。</span><br><span class="line">函数有四种调用方式：</span><br><span class="line">（<span class="keyword">function</span>）：func()直接调用-&gt;此模式下调用，this为Windows对象，全局上下文，严格模式下为undefined</span><br><span class="line">（method）：ninja.func()关联对象，实现面向对象编程</span><br><span class="line">（constructor）：new ninja()实例化新对象</span><br><span class="line">（apply或call）：func.apply/call(ninja)</span><br></pre></td></tr></table></figure>
+        <h2 id="隐式函数参数：arguments"><a href="#隐式函数参数：arguments" class="headerlink" title="隐式函数参数：arguments"></a>隐式函数参数：arguments</h2><p>arguments:不代表数组，允许我们访问传递给函数的所有参数。自带length属性。<br>arguments代表参数的别名，更改对象arguments的值会影响对应的函数参数。<br>arguments在strict模式下无法使用。arguments和参数值不互通（strict模式下）。</p>
+<h2 id="函数上下文：this"><a href="#函数上下文：this" class="headerlink" title="函数上下文：this"></a>函数上下文：this</h2><p>this：面向对象编程的重要组成部分。<br>this通常指向定义当前方法的类的实例。<br>函数有四种调用方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（<span class="keyword">function</span>）：func()直接调用-&gt;此模式下调用，this为Windows对象（全局上下文），严格模式下为undefined</span><br><span class="line">（method）：ninja.func()关联对象，实现面向对象编程</span><br><span class="line">（constructor）：new ninja()实例化新对象</span><br><span class="line">（apply或call）：func.apply/call(ninja)</span><br></pre></td></tr></table></figure>
       
     </div>
     
